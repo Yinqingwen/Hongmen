@@ -1,7 +1,19 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "提交数据";
 }
-
+<div class="panel panel-primary">
+    <div class="panel-heading text-center">
+        <h1 class="panel-title">向大红门集团上报运单数据</h1>
+    </div>
+    <div class="panel-body">
+        <p>向大红门集团提交 @DateTime.Now.Date.ToShortDateString() 的业务数据（含今日发货运单，今日到货运单，今日付款结算的运单，今日发放代收货款的运单）。</p>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日全部的收货运单数据为<strong>@ViewBag.TotalDataCount</strong>条</li>
+        </ul>
+    </div>
+    <div class="panel-footer text-right">当前系统日期为：@DateTime.Now.Date.ToShortDateString()</div>
+</div>
+<!--
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
@@ -29,3 +41,4 @@
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+-->
