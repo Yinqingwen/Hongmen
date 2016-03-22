@@ -9,7 +9,7 @@
         <p>向大红门集团提交 @DateTime.Now.Date.ToShortDateString() 的业务数据（含今日发货运单，今日到货运单，今日付款结算的运单，今日发放代收货款的运单）。</p>
         <ul class="list-group">
             <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日全部的收货运单数据为<strong>@ViewBag.TotalDataCount</strong>条</li>
-            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的收货运单数据为<strong id="tijiao"></strong>条</li>
+            <!--li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的收货运单数据为<strong id="tijiao"></strong>条</li-->
             <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交<strong>@DateTime.Now.Date.AddDays(-1).ToShortDateString()</strong>的到货运单数据为<strong>@ViewBag.DHDataCount</strong>条</li>
             <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的代收放款运单数据为<strong id="fd">@ViewBag.DSCount</strong>条</li>
             <li class="list-group-item">

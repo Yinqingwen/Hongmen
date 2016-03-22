@@ -7,7 +7,7 @@ namespace Homgmen.Models
     using System.Data.Entity.Spatial;
 
     [Table("sot")]
-    public partial class sot
+    public partial class Sot
     {
         public long ID { get; set; }
 
