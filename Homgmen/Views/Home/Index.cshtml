@@ -9,36 +9,25 @@
         <p>向大红门集团提交 @DateTime.Now.Date.ToShortDateString() 的业务数据（含今日发货运单，今日到货运单，今日付款结算的运单，今日发放代收货款的运单）。</p>
         <ul class="list-group">
             <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日全部的收货运单数据为<strong>@ViewBag.TotalDataCount</strong>条</li>
+            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的收货运单数据为<strong id="tijiao"></strong>条</li>
+            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交<strong>@DateTime.Now.Date.AddDays(-1).ToShortDateString()</strong>的到货运单数据为<strong>@ViewBag.DHDataCount</strong>条</li>
+            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的代收放款运单数据为<strong id="fd">@ViewBag.DSCount</strong>条</li>
+            <li class="list-group-item">
+                <p><strong>当前操作状态：</strong><span id="zhuangtai"></span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+                        0%
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="text-right">
+                    @Ajax.ActionLink("数据提交准备", "GetData", new { id = DateTime.Now.Date.ToShortDateString() }, new AjaxOptions() { UpdateTargetId = "tijiao", OnBegin = "loaddata", OnSuccess = "loaddataok" }, new {@class="btn btn-primary active", role="button", id = "getdata" })
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <a href="#" class="btn btn-primary disabled">数据提交</a>
+                </div>
+            </li>
         </ul>
     </div>
     <div class="panel-footer text-right">当前系统日期为：@DateTime.Now.Date.ToShortDateString()</div>
 </div>
-<!--
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
--->
