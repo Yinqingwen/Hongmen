@@ -9,6 +9,16 @@ namespace Homgmen.Models
     [Table("sothm")]
     public partial class sothm
     {
+        public sothm()
+        {
+        }
+        public sothm(Sot sot)
+        {
+            ID = sot.ID;
+            if (sot.收货人 != null || sot.收货人 != string.Empty)
+                this.收货人 = sot.收货人;
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public long ID { get; set; }
 
