@@ -140,5 +140,19 @@ namespace Homgmen.Controllers
 
             return Content(count.ToString());
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetDSJine()
+        {
+            //当前日期
+            DateTime current = DateTime.Today.Date;
+
+            var je = newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.代收金额 > 0).Sum(item => item.代收金额);
+
+            return Content(je.ToString());
+        }
     }
 }

@@ -54,7 +54,8 @@ namespace Homgmen.Models
         private void BlockConvertToXml(List<sothm> listsothm, int flag)
         {
             //运单信息XML字符串初始化
-            string mainXml = WriteDataXml(listsothm, flag);
+            string receiveinfoXml = WriteDataXml(listsothm, flag);
+            UploadToDHM.UploadXml(receiveinfoXml, LoaninfoXml);
         }
 
         /// <summary>

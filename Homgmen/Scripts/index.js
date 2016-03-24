@@ -1,4 +1,11 @@
-﻿$().ready(function () {
+﻿/*****************************************
+* 创建数据对象类                         *
+*****************************************/
+var resultTable = new Object();
+resultTable.toDay = new Date().toLocaleDateString();
+
+
+$().ready(function () {
     //为提交数据按钮设置响应函数
     $("#tj").click(datawork);
 });
@@ -24,6 +31,7 @@ function datawork() {
         url: '/Home/ReadyData',
         success: function (data) {
             var xx = "今日应提交" + data + "条数据！！！";
+            resultTable.TodayRowNumber = data;
             displayzt(xx);
             displayjd(10);
             syncdata();
@@ -62,6 +70,25 @@ function uploaddata() {
             var xx = "已经向大红门集团上报" + data + "条数据！！！";
             displayzt(xx);
             displayjd(30);
+            getdsjine();
         }
     });
 }
+
+/******************************************
+* 获取当日代收金额函数                    *
+******************************************/
+function getdsjine() {
+    displayzt("开始获取当日代收金额......");
+    displayjd(35);
+    $.ajax({
+        url: '/Home/GetDSJine',
+        success: function (data) {
+            var xx = "今日代收金额为人民币" + data + "元整!!!";
+            displayzt(xx);
+            displayjd(40);
+        }
+    });
+}
+
+
