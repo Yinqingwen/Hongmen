@@ -107,9 +107,37 @@ namespace Homgmen.Controllers
             foreach(var dataitem in data)
             {
                 sothm sothm = new sothm(dataitem);
+                sothm.单据状态 = 10;
+                sothm.上传状态 = false;
                 newsot.sothms.Add(sothm);
             }
-            //newsot.SaveChanges();
+            newsot.SaveChanges();
+            return Content(count.ToString());
+        }
+
+        /// <summary>
+        /// 向大红门集团上报数据
+        /// </summary>
+        /// <returns>上报的数据条目</returns>
+        public ActionResult UploadData()
+        {
+            //当前日期
+            DateTime current = DateTime.Today.Date;
+            //获取当天，单据状态为10，上传状态 = false的运单数据
+            var data = newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.单据状态 == 10).Where(item => item.上传状态 == false).ToList();
+            //运单总数
+            int count = data.Count();
+            //将运单列表转换为XML
+            DataToXml dtm = new DataToXml(data);
+            dtm.ConvertToXml(10);
+
+            //将数据列表中的数据全部设置为上传状态为True
+            foreach(var dataitem in data)
+            {
+                dataitem.上传状态 = true;
+            }
+            newsot.SaveChanges();
+
             return Content(count.ToString());
         }
     }

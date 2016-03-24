@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax21="http://io.java/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns="http://impl.com.cn" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://impl.com.cn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>TransitService</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://io.java/xsd">
+      <xs:complexType name="File">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="absolute" type="xs:boolean" />
+          <xs:element minOccurs="0" name="absoluteFile" nillable="true" type="ax21:File" />
+          <xs:element minOccurs="0" name="absolutePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="canonicalFile" nillable="true" type="ax21:File" />
+          <xs:element minOccurs="0" name="canonicalPath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="directory" type="xs:boolean" />
+          <xs:element minOccurs="0" name="file" type="xs:boolean" />
+          <xs:element minOccurs="0" name="freeSpace" type="xs:long" />
+          <xs:element minOccurs="0" name="hidden" type="xs:boolean" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="parent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="parentFile" nillable="true" type="ax21:File" />
+          <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalSpace" type="xs:long" />
+          <xs:element minOccurs="0" name="usableSpace" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ax22="http://io.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.com.cn">
+      <xs:import namespace="http://io.java/xsd" />
+      <xs:element name="SetDocument">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="info" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="comCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetGroupInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="info" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="comCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isFileExists">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="file" nillable="true" type="ax22:File" />
+            <xs:element minOccurs="0" name="comcode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isFileExistsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="receiveinfo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="loaninfo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="comCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transPortOperation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="condition" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="transPortOperationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetDocumentOther">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="info" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="comCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetDocumentOtherResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SetInfo2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="receiveinfo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="loaninfo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="comCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDESKey">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="info" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetDESKeyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="writeUuid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="string" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="writeUuidRequest">
+    <wsdl:part name="parameters" element="ns:writeUuid" />
+  </wsdl:message>
+  <wsdl:message name="SetInfo2Request">
+    <wsdl:part name="parameters" element="ns:SetInfo2" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentOtherRequest">
+    <wsdl:part name="parameters" element="ns:SetDocumentOther" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentOtherResponse">
+    <wsdl:part name="parameters" element="ns:SetDocumentOtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetDocumentRequest">
+    <wsdl:part name="parameters" element="ns:SetDocument" />
+  </wsdl:message>
+  <wsdl:message name="transPortOperationRequest">
+    <wsdl:part name="parameters" element="ns:transPortOperation" />
+  </wsdl:message>
+  <wsdl:message name="transPortOperationResponse">
+    <wsdl:part name="parameters" element="ns:transPortOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetGroupInfoRequest">
+    <wsdl:part name="parameters" element="ns:SetGroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="isFileExistsRequest">
+    <wsdl:part name="parameters" element="ns:isFileExists" />
+  </wsdl:message>
+  <wsdl:message name="isFileExistsResponse">
+    <wsdl:part name="parameters" element="ns:isFileExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDESKeyRequest">
+    <wsdl:part name="parameters" element="ns:GetDESKey" />
+  </wsdl:message>
+  <wsdl:message name="GetDESKeyResponse">
+    <wsdl:part name="parameters" element="ns:GetDESKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetInfoRequest">
+    <wsdl:part name="parameters" element="ns:SetInfo" />
+  </wsdl:message>
+  <wsdl:portType name="TransitServicePortType">
+    <wsdl:operation name="writeUuid">
+      <wsdl:input wsaw:Action="urn:writeUuid" message="ns:writeUuidRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo2">
+      <wsdl:input wsaw:Action="urn:SetInfo2" message="ns:SetInfo2Request" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentOther">
+      <wsdl:input wsaw:Action="urn:SetDocumentOther" message="ns:SetDocumentOtherRequest" />
+      <wsdl:output wsaw:Action="urn:SetDocumentOtherResponse" message="ns:SetDocumentOtherResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocument">
+      <wsdl:input wsaw:Action="urn:SetDocument" message="ns:SetDocumentRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="transPortOperation">
+      <wsdl:input wsaw:Action="urn:transPortOperation" message="ns:transPortOperationRequest" />
+      <wsdl:output wsaw:Action="urn:transPortOperationResponse" message="ns:transPortOperationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupInfo">
+      <wsdl:input wsaw:Action="urn:SetGroupInfo" message="ns:SetGroupInfoRequest" />
+    </wsdl:operation>
+    <wsdl:operation name="isFileExists">
+      <wsdl:input wsaw:Action="urn:isFileExists" message="ns:isFileExistsRequest" />
+      <wsdl:output wsaw:Action="urn:isFileExistsResponse" message="ns:isFileExistsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESKey">
+      <wsdl:input wsaw:Action="urn:GetDESKey" message="ns:GetDESKeyRequest" />
+      <wsdl:output wsaw:Action="urn:GetDESKeyResponse" message="ns:GetDESKeyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo">
+      <wsdl:input wsaw:Action="urn:SetInfo" message="ns:SetInfoRequest" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransitServiceSoap11Binding" type="ns:TransitServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="writeUuid">
+      <soap:operation soapAction="urn:writeUuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo2">
+      <soap:operation soapAction="urn:SetInfo2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentOther">
+      <soap:operation soapAction="urn:SetDocumentOther" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocument">
+      <soap:operation soapAction="urn:SetDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupInfo">
+      <soap:operation soapAction="urn:SetGroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="transPortOperation">
+      <soap:operation soapAction="urn:transPortOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFileExists">
+      <soap:operation soapAction="urn:isFileExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESKey">
+      <soap:operation soapAction="urn:GetDESKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo">
+      <soap:operation soapAction="urn:SetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TransitServiceSoap12Binding" type="ns:TransitServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="writeUuid">
+      <soap12:operation soapAction="urn:writeUuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo2">
+      <soap12:operation soapAction="urn:SetInfo2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentOther">
+      <soap12:operation soapAction="urn:SetDocumentOther" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocument">
+      <soap12:operation soapAction="urn:SetDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupInfo">
+      <soap12:operation soapAction="urn:SetGroupInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="transPortOperation">
+      <soap12:operation soapAction="urn:transPortOperation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFileExists">
+      <soap12:operation soapAction="urn:isFileExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESKey">
+      <soap12:operation soapAction="urn:GetDESKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo">
+      <soap12:operation soapAction="urn:SetInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TransitServiceHttpBinding" type="ns:TransitServicePortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="writeUuid">
+      <http:operation location="writeUuid" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo2">
+      <http:operation location="SetInfo2" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentOther">
+      <http:operation location="SetDocumentOther" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocument">
+      <http:operation location="SetDocument" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetGroupInfo">
+      <http:operation location="SetGroupInfo" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="transPortOperation">
+      <http:operation location="transPortOperation" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFileExists">
+      <http:operation location="isFileExists" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESKey">
+      <http:operation location="GetDESKey" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInfo">
+      <http:operation location="SetInfo" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransitService">
+    <wsdl:port name="TransitServiceHttpSoap11Endpoint" binding="ns:TransitServiceSoap11Binding">
+      <soap:address location="http://175.25.16.103:8086/eCardTransitWebService/services/TransitService.TransitServiceHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="TransitServiceHttpSoap12Endpoint" binding="ns:TransitServiceSoap12Binding">
+      <soap12:address location="http://175.25.16.103:8086/eCardTransitWebService/services/TransitService.TransitServiceHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="TransitServiceHttpEndpoint" binding="ns:TransitServiceHttpBinding">
+      <http:address location="http://175.25.16.103:8086/eCardTransitWebService/services/TransitService.TransitServiceHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

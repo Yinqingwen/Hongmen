@@ -23,22 +23,22 @@ namespace Homgmen.Models
             ID = sot.ID;
             //收货人
             if (sot.收货人 != null || sot.收货人 != string.Empty)
-                this.收货人 = sot.收货人;
+                this.收货人 = sot.收货人.Trim();
             else
                 this.收货人 = "";
             //收货人电话
             if (sot.收货人电话 != null || sot.收货人电话 != string.Empty)
-                this.收货人电话 = sot.收货人电话;
+                this.收货人电话 = sot.收货人电话.Trim();
             else
                 this.收货人电话 = "";
             //发货人
             if (sot.发货人 != null || sot.发货人 != string.Empty)
-                this.发货人 = sot.发货人;
+                this.发货人 = sot.发货人.Trim();
             else
                 this.发货人 = "";
             //发货人电话
             if (sot.发货人电话 != null || sot.发货人电话 != string.Empty)
-                this.发货人电话 = sot.发货人电话;
+                this.发货人电话 = sot.发货人电话.Trim();
             else
                 this.发货人电话 = "";
             //垫付款
@@ -61,6 +61,21 @@ namespace Homgmen.Models
                 this.手续费 = Convert.ToDecimal(sot.手续费);
             else
                 this.手续费 = Convert.ToDecimal(0.00);
+            //付款方式
+            if (sot.付款方式 != null || sot.付款方式 != string.Empty)
+                this.付款方式 = sot.付款方式.Trim();
+            else
+                this.付款方式 = "";
+            //托运日期
+            if (sot.托运日期 != null || sot.托运日期 != string.Empty)
+                this.托运日期 = Convert.ToDateTime(sot.托运日期).Date;
+            else
+                this.托运日期 = DateTime.Today.Date;
+            //时间
+            if (sot.时间 != null || sot.时间 != string.Empty)
+                this.时间 = Convert.ToDateTime(sot.时间);
+            else
+                this.时间 = DateTime.Today;
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

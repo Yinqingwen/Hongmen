@@ -44,6 +44,24 @@ function syncdata() {
             var xx = "已经同步" + data + "条数据！！！";
             displayzt(xx);
             displayjd(20);
+            //上传今日数据函数
+            uploaddata()
+        }
+    });
+}
+
+/******************************************
+* 数据上传函数                            *
+******************************************/
+function uploaddata() {
+    displayzt("开始向大红门集团上传数据......");
+    displayjd(25);
+    $.ajax({
+        url: '/Home/UploadData',
+        success: function (data) {
+            var xx = "已经向大红门集团上报" + data + "条数据！！！";
+            displayzt(xx);
+            displayjd(30);
         }
     });
 }
