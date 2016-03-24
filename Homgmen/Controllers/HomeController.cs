@@ -78,30 +78,9 @@ namespace Homgmen.Controllers
         }
 
         /// <summary>
-        /// 将iPad运单数据同步到准备数据库中
+        /// 获取应提交的数据条目数量
         /// </summary>
-        /// <param name="date"></param>
         /// <returns></returns>
-        private int GetData(DateTime date)
-        {
-            //同步的数据数量
-            int count;
-            //清除当前日期的数据
-            ClearSothmForDate(date);
-
-            //检索旧数据库，创建数据对象
-            string sdate = datetostring(date);
-            var olddata = oldsot.Sots.Where(item => item.收货网点 == "大红门").Where(item => item.托运日期 == sdate).Where(item => item.完成度 == "2");
-            count = olddata.Count();
-            foreach (var olddataitem in olddata)
-            {
-                sothm sothm = new sothm(olddataitem);
-                newsot.sothms.Add(sothm);
-            }
-            newsot.SaveChanges();
-            return count;
-        }
-
         public ActionResult ReadyData()
         {
             string rq = datetostring(DateTime.Today);
@@ -115,14 +94,23 @@ namespace Homgmen.Controllers
         /// <returns>同步的数据条目</returns>
         public ActionResult SyncData()
         {
-            int count;
-            return Content("ok");
-        }
+            //将当前日期的新数据库中的数据条目清除
+            ClearSothmForDate(DateTime.Today.Date);
 
-        [HttpPost]
-        public ActionResult SyncData(DateTime id)
-        {
-            return Content("ok");
+            //将当前日期转换为字符串类型，旧数据库用
+            string rq = datetostring(DateTime.Today);
+            //数据列表
+            var data = oldsot.Sots.Where(item => item.收货网点 == "大红门").Where(item => item.托运日期 == rq).Where(item => item.完成度 == "2").ToList();
+            //数据条目
+            int count = data.Count();
+            //开始同步数据
+            foreach(var dataitem in data)
+            {
+                sothm sothm = new sothm(dataitem);
+                newsot.sothms.Add(sothm);
+            }
+            //newsot.SaveChanges();
+            return Content(count.ToString());
         }
     }
 }
