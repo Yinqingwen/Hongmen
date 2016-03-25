@@ -19,6 +19,8 @@ namespace Homgmen.Controllers
         /// </summary>
         private NewSot newsot = new NewSot();
 
+        private Report report = new Report();
+
         public ActionResult Index()
         {
             //当前日期，旧数据库用
@@ -112,6 +114,7 @@ namespace Homgmen.Controllers
                 newsot.sothms.Add(sothm);
             }
             newsot.SaveChanges();
+
             return Content(count.ToString());
         }
 
@@ -138,21 +141,100 @@ namespace Homgmen.Controllers
             }
             newsot.SaveChanges();
 
+            //添加报表对象创建日期
+            report.Date = DateTime.Now;
+            //报表对象当日发货数量
+            report.SendNumber = count;
+
             return Content(count.ToString());
         }
 
         /// <summary>
-        /// 
+        /// 获取当日发货代收金额
         /// </summary>
         /// <returns></returns>
         public ActionResult GetDSJine()
         {
             //当前日期
             DateTime current = DateTime.Today.Date;
-
-            var je = newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.代收金额 > 0).Sum(item => item.代收金额);
+            //获取当日发货代收金额数量
+            decimal je = Convert.ToDecimal(newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.代收金额 > 0).Sum(item => item.代收金额));
+            //将当日发货代收金额存入数据库
+            report.Monery = je;
 
             return Content(je.ToString());
+        }
+
+        /// <summary>
+        /// 获取今日到货单据并上传大红门集团
+        /// 检索条件为：托运日期为今日-1，且单据状态为10，上传状态为1
+        /// </summary>
+        /// <returns>到货单据数量</returns>
+        public ActionResult UploadDH()
+        {
+            //获取日期，条件为当日-1
+            DateTime current = DateTime.Today.AddDays(-1).Date;
+            //获取到货数据集及数量
+            var data = newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.单据状态 == 10).Where(item => item.上传状态 == true).ToList();
+            int count = data.Count;
+            //转换为XML文件并上传大红门集团
+            DataToXml dtm = new DataToXml(data);
+            dtm.ConvertToXml(30);
+
+            //修改单据状态为30，并保存
+            foreach(var item in data)
+            {
+                item.单据状态 = 30;
+            }
+            //发布时，需要保存
+            //newsot.SaveChanges();
+
+            //保存上报数据
+            report.ArrivalsNumber = count;
+
+            //返回
+            return Content(count.ToString());
+        }
+
+        /// <summary>
+        /// 获取今日付款提货单据并上传大红门集团
+        /// </summary>
+        /// <returns>单据数目</returns>
+        public ActionResult UploadFKTH()
+        {
+            //定义处理中间结果集
+            List<sothm> itemlist = new List<sothm>();
+
+            //获取所有未付款提货的单据
+            var data = newsot.sothms.Where(item => item.单据状态 == 30).Where(item => item.代收金额 > 0).Where(item => item.上传状态 == true).ToList();
+            //检查相关单据中是否有付款提货记录，如有，添加到中间结果集中
+            foreach(var dataitem in data)
+            {
+                //在财务付款提货库中检索是否有符合的单据
+                var dh = newsot.hmdhs.Find(dataitem.ID);
+                if (dh != null)
+                {
+                    //检索到相关数据，添加到中间结果集
+                    itemlist.Add(dataitem);
+                    //从财务付款提货数据库中删除相关记录
+                    newsot.hmdhs.Remove(dh);
+                }
+            }
+            newsot.SaveChanges();
+
+            //开始处理中间结果集,并上传大红门集团
+            DataToXml dtm = new DataToXml(itemlist);
+            dtm.ConvertToXml(40);
+
+            //将结果集单据处理为已付款提货状态
+            foreach(var item in itemlist)
+            {
+                item.单据状态 = 40;
+            }
+            newsot.SaveChanges();
+
+            //返回处理的结果集数量
+            return Content(itemlist.Count.ToString());
         }
     }
 }

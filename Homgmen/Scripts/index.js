@@ -2,8 +2,6 @@
 * 创建数据对象类                         *
 *****************************************/
 var resultTable = new Object();
-resultTable.toDay = new Date().toLocaleDateString();
-
 
 $().ready(function () {
     //为提交数据按钮设置响应函数
@@ -87,8 +85,41 @@ function getdsjine() {
             var xx = "今日代收金额为人民币" + data + "元整!!!";
             displayzt(xx);
             displayjd(40);
+            UploadDhData();
         }
     });
 }
 
+/******************************************
+* 获取并上报当日到货单据                  *
+******************************************/
+function UploadDhData() {
+    displayzt("开始向大红门集团上报当日到货单据......");
+    displayjd(45);
+    $.ajax({
+        url: '/Home/UploadDH',
+        success: function (data) {
+            var xx = "今日到货单据为" + data + "条，已上报大红门集团！！！";
+            displayzt(xx);
+            displayjd(50);
+            UploadFKData();
+        }
+    });
+}
+
+/******************************************
+* 获取并上报当日汇款函数                  *
+******************************************/
+function UploadFKData() {
+    displayzt("开始向大红门集团上报单日汇款数据......");
+    displayjd(55);
+    $.ajax({
+        url: '/Home/UploadFKTH',
+        success: function (data) {
+            var xx = "今日付款单据数量为" + data + "条，已上报大红门集团";
+            displayzt(xx);
+            displayjd(60);
+        }
+    });
+}
 
