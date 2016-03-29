@@ -1,5 +1,4 @@
-﻿using System;
-namespace Homgmen.Models
+﻿namespace Homgmen.Models
 {
     using System;
     using System.Collections.Generic;
@@ -14,16 +13,11 @@ namespace Homgmen.Models
     public partial class Report
     {
         /// <summary>
-        /// 提交条目ID
-        /// </summary>
-        [Required]
-        public long ID { get; set; }
-
-        /// <summary>
         /// 报表日期
         /// </summary>
         [Required]
-        public DateTime Date { get; set; }
+        [Key]
+        public DateTime DateID { get; set; }
 
         /// <summary>
         /// 当日提交发货单据数

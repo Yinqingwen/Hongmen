@@ -53,7 +53,7 @@ namespace Homgmen.Controllers
         }
 
         /// <summary>
-        /// 从日期型转换为字符串型
+        /// 从日期型转换为字符串型，OldSot用
         /// </summary>
         /// <param name="date">日期型数据</param>
         /// <returns>字符串型日期数据</returns>
@@ -142,7 +142,7 @@ namespace Homgmen.Controllers
             newsot.SaveChanges();
 
             //添加报表对象创建日期
-            report.Date = DateTime.Now;
+            report.DateID = DateTime.Now;
             //报表对象当日发货数量
             report.SendNumber = count;
 
@@ -197,7 +197,7 @@ namespace Homgmen.Controllers
         }
 
         /// <summary>
-        /// 获取今日付款提货单据并上传大红门集团
+        /// 获取今日付款提货单据并上传大红门集团，拟删除，已用Execl导入替代此功能
         /// </summary>
         /// <returns>单据数目</returns>
         public ActionResult UploadFKTH()
@@ -236,5 +236,7 @@ namespace Homgmen.Controllers
             //返回处理的结果集数量
             return Content(itemlist.Count.ToString());
         }
+
+
     }
 }

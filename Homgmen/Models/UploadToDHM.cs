@@ -131,7 +131,7 @@ namespace Homgmen.Models
             const string comcode = "1112";
 
             //将提交的Xml文件保存
-            //FileSaveBackup(receiveinfoxml, loaninfoxml);
+            FileSaveBackup(receiveinfoxml, loaninfoxml);
             //创建服务对象
             TransitService ts = new TransitService();
             //用“物流公司编码”获取加密密钥

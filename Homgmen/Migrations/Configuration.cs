@@ -9,7 +9,7 @@ namespace Homgmen.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Homgmen.Models.NewSot context)
