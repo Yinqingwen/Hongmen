@@ -15,7 +15,6 @@
         public virtual DbSet<hmdh> hmdhs { get; set; }
         public virtual DbSet<hmdshz> hmdshzs { get; set; }
         public virtual DbSet<sothm> sothms { get; set; }
-        public virtual DbSet<Report> Reports { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

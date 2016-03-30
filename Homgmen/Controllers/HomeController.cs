@@ -19,8 +19,6 @@ namespace Homgmen.Controllers
         /// </summary>
         private NewSot newsot = new NewSot();
 
-        private Report report = new Report();
-
         public ActionResult Index()
         {
             //当前日期，旧数据库用
@@ -63,7 +61,7 @@ namespace Homgmen.Controllers
         }
 
         /// <summary>
-        /// 根据日期删除数据库
+        /// 根据日期删除数据库中的相关条目
         /// </summary>
         /// <param name="date">需要删除的日期</param>
         private void ClearSothmForDate(DateTime date)
@@ -141,11 +139,6 @@ namespace Homgmen.Controllers
             }
             newsot.SaveChanges();
 
-            //添加报表对象创建日期
-            report.DateID = DateTime.Now;
-            //报表对象当日发货数量
-            report.SendNumber = count;
-
             return Content(count.ToString());
         }
 
@@ -159,8 +152,6 @@ namespace Homgmen.Controllers
             DateTime current = DateTime.Today.Date;
             //获取当日发货代收金额数量
             decimal je = Convert.ToDecimal(newsot.sothms.Where(item => item.托运日期 == current).Where(item => item.代收金额 > 0).Sum(item => item.代收金额));
-            //将当日发货代收金额存入数据库
-            report.Monery = je;
 
             return Content(je.ToString());
         }
@@ -189,54 +180,24 @@ namespace Homgmen.Controllers
             //发布时，需要保存
             //newsot.SaveChanges();
 
-            //保存上报数据
-            report.ArrivalsNumber = count;
-
             //返回
             return Content(count.ToString());
         }
 
         /// <summary>
-        /// 获取今日付款提货单据并上传大红门集团，拟删除，已用Execl导入替代此功能
+        /// 获取当日汇款单据数量并上报大红门集团
         /// </summary>
-        /// <returns>单据数目</returns>
-        public ActionResult UploadFKTH()
+        /// <returns>汇款单据数量</returns>
+        public ActionResult UploadFK()
         {
-            //定义处理中间结果集
-            List<sothm> itemlist = new List<sothm>();
+            //获取数据结果集
+            //var data = newsot.hmdshzs.Where(item => item.上传状态 == false).ToList();
+            var data = newsot.hmdshzs.Where(item => item.上传状态 == true).ToList(); //测试用，用已上传的
+            HkdjTOXml hkdj = new HkdjTOXml(data);
+            hkdj.ConvertToXML();
 
-            //获取所有未付款提货的单据
-            var data = newsot.sothms.Where(item => item.单据状态 == 30).Where(item => item.代收金额 > 0).Where(item => item.上传状态 == true).ToList();
-            //检查相关单据中是否有付款提货记录，如有，添加到中间结果集中
-            foreach(var dataitem in data)
-            {
-                //在财务付款提货库中检索是否有符合的单据
-                var dh = newsot.hmdhs.Find(dataitem.ID);
-                if (dh != null)
-                {
-                    //检索到相关数据，添加到中间结果集
-                    itemlist.Add(dataitem);
-                    //从财务付款提货数据库中删除相关记录
-                    newsot.hmdhs.Remove(dh);
-                }
-            }
-            newsot.SaveChanges();
-
-            //开始处理中间结果集,并上传大红门集团
-            DataToXml dtm = new DataToXml(itemlist);
-            dtm.ConvertToXml(40);
-
-            //将结果集单据处理为已付款提货状态
-            foreach(var item in itemlist)
-            {
-                item.单据状态 = 40;
-            }
-            newsot.SaveChanges();
-
-            //返回处理的结果集数量
-            return Content(itemlist.Count.ToString());
+            //返回数量结果
+            return Content("3");
         }
-
-
     }
 }

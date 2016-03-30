@@ -170,15 +170,16 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataToXml.cs" />
+    <Compile Include="Models\HkdjTOXml.cs" />
     <Compile Include="Models\hmdh.cs" />
     <Compile Include="Models\hmdshz.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewSot.cs" />
     <Compile Include="Models\OldSot.cs" />
-    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Sot.cs" />
     <Compile Include="Models\sothm.cs" />
+    <Compile Include="Models\Tools.cs" />
     <Compile Include="Models\UploadToDHM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

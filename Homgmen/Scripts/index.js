@@ -114,7 +114,7 @@ function UploadFKData() {
     displayzt("开始向大红门集团上报单日汇款数据......");
     displayjd(55);
     $.ajax({
-        url: '/Home/UploadFKTH',
+        url: '/Home/UploadFK',
         success: function (data) {
             var xx = "今日付款单据数量为" + data + "条，已上报大红门集团";
             displayzt(xx);
