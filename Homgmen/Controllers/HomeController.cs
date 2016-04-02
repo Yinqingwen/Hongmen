@@ -21,6 +21,11 @@ namespace Homgmen.Controllers
 
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Index1()
+        {
             //当前日期，旧数据库用
             string currentdate = DateTime.Now.Year.ToString()+"-"+DateTime.Now.Month.ToString()+"-"+DateTime.Now.Day.ToString();
             //应提交的到货单据日期，为当前日期-1
@@ -191,13 +196,10 @@ namespace Homgmen.Controllers
         public ActionResult UploadFK()
         {
             //获取数据结果集
-            //var data = newsot.hmdshzs.Where(item => item.上传状态 == false).ToList();
-            var data = newsot.hmdshzs.Where(item => item.上传状态 == true).ToList(); //测试用，用已上传的
+            var data = newsot.hmdshzs.Where(item => item.上传状态 == false).ToList();
             HkdjTOXml hkdj = new HkdjTOXml(data);
-            hkdj.ConvertToXML();
-
             //返回数量结果
-            return Content("3");
+            return Content(hkdj.ConvertToXML());
         }
     }
 }

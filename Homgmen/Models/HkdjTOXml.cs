@@ -6,10 +6,11 @@ using System.Web;
 namespace Homgmen.Models
 {
     /// <summary>
-    /// 汇款单据类转换为大红门系统规定的XML文件
+    /// 汇款单据类转换为大红门系统规定的XML文件,并且上传到大红门集团服务器
     /// </summary>
     public class HkdjTOXml
     {
+        //数据库对象
         private NewSot newsot = new NewSot();
         //内部代收汇款单据对象
         private List<hmdshz> _hmdshzlist;
@@ -23,6 +24,10 @@ namespace Homgmen.Models
             _hmdshzlist = hmdshzlist;
         }
 
+        /// <summary>
+        /// 将汇款单据及相关运单数据转换为XML文件并上传到大红门集团
+        /// </summary>
+        /// <returns></returns>
         public string ConvertToXML()
         {
             foreach(hmdshz item in _hmdshzlist)
@@ -32,9 +37,10 @@ namespace Homgmen.Models
                 //获取汇款XML
                 string LoaninfoXml = GetLoaninfoXml(item);
                 //上传XML
+                UploadToDHM.UploadXml(ReceiveinfoXml, LoaninfoXml);
             }
 
-            return ("12345");
+            return (_hmdshzlist.Count.ToString());
         }
 
         /// <summary>

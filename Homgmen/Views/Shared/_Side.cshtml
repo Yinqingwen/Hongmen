@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav class="col-md-2 pull-left">
+    <ul class="nav" style="box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.22) !important;">
+        <li class="active">
+            @Html.ActionLink("数据看板", "Index", "Site")
+        </li>
+        <li>
+            @Html.ActionLink("上报(大红门集团数据)", "Upload", "Site")
+        </li>
+        <li>
+            @Html.ActionLink("上报数据报表", "Report", "Site")
+        </li>
+        <li>
+            @Html.ActionLink("运单操作", "Search", "Site")
+        </li>
+        <li>
+            @Html.ActionLink("站点数据报表", "SiteReport", "Site")
+        </li>
+    </ul>
+</nav>
+<div class="col-md-10">
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

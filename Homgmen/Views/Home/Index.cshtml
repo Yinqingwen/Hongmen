@@ -1,40 +1,29 @@
-﻿@{
-    ViewBag.Title = "提交数据";
-}
-<div class="panel panel-primary">
-    <div class="panel-heading text-center">
-        <h1 class="panel-title">向大红门集团上报运单数据</h1>
+﻿<div class="row" style="border:solid 1px #ccc;padding:30px;">
+    <div class="pull-left" style="display:inline-block;">
+        <h3>系统数据显示面板<small>目前只包含大红门站点数据</small></h3>
     </div>
-    <div class="panel-body">
-        <p>向大红门集团提交 @DateTime.Now.Date.ToShortDateString() 的业务数据（含今日发货运单，今日到货运单，今日付款结算的运单，今日发放代收货款的运单）。</p>
-        <ul class="list-group">
-            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日全部的收货运单数据为<strong>@ViewBag.TotalDataCount</strong>条</li>
-            <!--li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的收货运单数据为<strong id="tijiao"></strong>条</li-->
-            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交<strong>@DateTime.Now.Date.AddDays(-1).ToShortDateString()</strong>的到货运单数据为<strong>@ViewBag.DHDataCount</strong>条</li>
-            <li class="list-group-item"><strong>@DateTime.Now.Date.ToShortDateString()</strong>今日应提交的代收放款运单数据为<strong id="fd">@ViewBag.DSCount</strong>条</li>
-            <li class="list-group-item">
-                <p><strong>当前操作状态：</strong><span id="zhuangtai"></span></p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
-                        0%
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="text-right">
-                    <!--
-                    @Ajax.ActionLink("数据提交准备", "GetData", new { id = DateTime.Now.Date.ToShortDateString() }, new AjaxOptions() { UpdateTargetId = "tijiao", OnBegin = "loaddata", OnSuccess = "loaddataok" }, new {@class="btn btn-primary active", role="button", id = "getdata" })
-                    <span class="glyphicon glyphicon-arrow-right"></span>
-                    -->
-                    <a href="#" class="btn btn-primary" id="tj">数据提交</a>
-                </div>
-            </li>
-        </ul>
+    <div class="pull-right" style="display:inline-block;">
+        <h3>@DateTime.Today.ToShortDateString()</h3>
     </div>
-    <div class="panel-footer text-right">当前系统日期为：@DateTime.Now.Date.ToShortDateString()</div>
 </div>
-@section scripts
-{
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/index.js"></script>
-}
+<div class="row" style="padding:20px;border:solid 1px #ccc;">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div style="border-radius: 2px;background: #fff;padding: 15px 15px 30px 15px;margin-bottom: 20px;">
+            <div style="margin-bottom: 20px;">
+                <div class="pull-left" style="display: inline-block;">
+                    <h4>611<small>票</small></h4>
+                    <small>全部运单数据</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div style="border-radius: 2px;background: #fff;padding: 15px 15px 30px 15px;margin-bottom: 20px;">模块1</div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div style="border-radius: 2px;background: #fff;padding: 15px 15px 30px 15px;margin-bottom: 20px;">模块1</div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div style="border-radius: 2px;background: #fff;padding: 15px 15px 30px 15px;margin-bottom: 20px;">模块1</div>
+    </div>
+</div>

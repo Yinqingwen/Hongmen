@@ -147,7 +147,7 @@ namespace Homgmen.Models
         UploadXml:
             try
             {
-                //上传数据
+                //发布解除上传数据
                 //ts.SetInfo(xml1, xml2, comcode);
             }
             catch
