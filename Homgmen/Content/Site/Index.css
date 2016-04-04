@@ -1,0 +1,30 @@
+﻿.title {
+     padding:5px 15px;
+}
+.displaybox {
+    border-radius:4px;
+    background:#fff;
+    padding:15px;
+    margin:15px 0;
+}
+.color-1 {
+    color: #4DB3A2 !important;
+}
+    .displaybox > div > div {
+        display:inline-block;
+    }
+        .displaybox > div > div > h3 {
+            margin:0 0 2px 0;
+            font-size:30px;
+            font-weight:400;
+        }
+        .displaybox > div > div > small {
+            font-size:14px;
+            color:#AAB5BC;
+            font-weight:600;
+            text-transform:uppercase;
+        }
+        .displaybox > div > div > span {
+            color:#cbd4e0;
+            font-size:26px;
+        }

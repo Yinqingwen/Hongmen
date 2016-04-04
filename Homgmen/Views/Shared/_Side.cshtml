@@ -1,10 +1,15 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section css
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/SideLayout.css" />
+}
+@RenderSection("css", required: false)
 <nav class="col-md-2 pull-left">
-    <ul class="nav" style="box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.22) !important;">
+    <ul class="nav shadowbox">
         <li class="active">
-            @Html.ActionLink("数据看板", "Index", "Site")
+            @Html.ActionLink("站点看板", "Index", "Site")
         </li>
         <li>
             @Html.ActionLink("上报(大红门集团数据)", "Upload", "Site")
@@ -21,7 +26,7 @@
     </ul>
 </nav>
 <div class="col-md-10">
-    <div class="container-fluid">
+    <div class="container-fluid shadowbox">
         @RenderBody()
     </div>
 </div>
