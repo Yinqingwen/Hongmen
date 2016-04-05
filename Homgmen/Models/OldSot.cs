@@ -13,5 +13,7 @@
         }
 
         public virtual DbSet<Sot> Sots { get; set; }
+
+        public virtual DbSet<Idde> Iddes { get; set; }
     }
 }

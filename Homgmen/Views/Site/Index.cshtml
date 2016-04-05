@@ -1,0 +1,112 @@
+﻿@{
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+@section css
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/Site/Index.css" />
+}
+@section SideMenu
+{
+    @Html.Partial("_SiteSideMenu");
+}
+<div class="row">
+    <div class="title clearfix">
+        <h4 class="pull-left" style="">站点首页</h4>
+        <h4 class="pull-right" style="">@DateTime.Today.ToShortDateString()</h4>
+    </div>
+    <div>
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("首页", "Index", "Home")</li>
+            <li class="active">@Html.ActionLink("站点", "Index", "Site")</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">611<small>票</small></h3>
+                    <small>总运单数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">611<small>票</small></h3>
+                    <small>无代收运单数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">611<small>票</small></h3>
+                    <small>有代收运单数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">611<small>票</small></h3>
+                    <small>汇款单数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1"><small>￥：</small>888888.88<small>元</small></h3>
+                    <small>代收金额合计</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1"><small>￥：</small>888888.88<small>元</small></h3>
+                    <small>总运费金额合计</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        $('#SideMenu_Index').addClass('active');
+    </script>
+}
+

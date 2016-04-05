@@ -7,22 +7,8 @@
 }
 @RenderSection("css", required: false)
 <nav class="col-md-2 pull-left">
-    <ul class="nav shadowbox">
-        <li class="active">
-            @Html.ActionLink("站点看板", "Index", "Site")
-        </li>
-        <li>
-            @Html.ActionLink("上报(大红门集团数据)", "Upload", "Site")
-        </li>
-        <li>
-            @Html.ActionLink("上报数据报表", "Report", "Site")
-        </li>
-        <li>
-            @Html.ActionLink("运单操作", "Search", "Site")
-        </li>
-        <li>
-            @Html.ActionLink("站点数据报表", "SiteReport", "Site")
-        </li>
+    <ul class="nav nav-pills nav-stacked shadowbox" id="SideMenu">
+        @RenderSection("SideMenu",required:false)
     </ul>
 </nav>
 <div class="col-md-10">
