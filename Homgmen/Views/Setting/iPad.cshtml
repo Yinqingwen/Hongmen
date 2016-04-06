@@ -14,49 +14,67 @@
     <div class="page-header">
         <h1>iPad终端管理 <small>仅北京站点</small></h1>
     </div>
-    @using (Html.BeginForm("iPadAdd", "Setting", FormMethod.Post, new { @class = "form-inline" }))
+    @using (Html.BeginForm("iPad", "Setting", FormMethod.Post, new { @class = "form-inline" }))
     {
         <div class="form-group">
             <label for="SerialNumber">序列号</label>
             <input type="text" class="form-control" name="SerialNumber" id="SerialNumber" placeholder="三位序列号">
         </div>
         <div class="form-group">
-            <label for="yewuyuan">业务员</label>
-            <input type="text" class="form-control" name="yewuyuan" id="yewuyuan" placeholder="业务员姓名">
+            <label for="Yewuyuan">业务员</label>
+            <input type="text" class="form-control" name="Yewuyuan" id="Yewuyuan" placeholder="业务员姓名">
         </div>
+        <div class="form-group">
+            <label for="Site">收货网点</label>
+            <input type="text" class="form-control" name="Site" id="Site" placeholder="收货网点">
+        </div>
+        <div class="form-group">
+            <label for="City">始发城市</label>
+            <input type="text" class="form-control" name="City" id="City" placeholder="始发城市">
+        </div>
+        <div class="form-group">
+            <label for="Zeren">责任人</label>
+            <input type="text" class="form-control" name="Zeren" id="Zeren" placeholder="责任人">
+        </div>
+        <button type="submit" class="btn btn-primary">新增iPad终端</button>
     }
-    <table class="table table-bordered table-responsive table-hover" style="margin-top:15px;">
-        <thead>
-            <tr>
-                <td class="text-center">序号</td>
-                <td class="text-center">设备号</td>
-                <td class="text-center">业务员</td>
-                <td class="text-center">收货网点</td>
-                <td class="text-center">始发城市</td>
-                <td class="text-center">业务操作</td>
-            </tr>
-        </thead>
-        <tbody>
-            @{
-                int xh = 1;
-                foreach (var item in Model)
-                {
+    @{
+        if (Model != null)
+        {
+            <table class="table table-bordered table-responsive table-hover" style="margin-top:15px;">
+                <thead>
                     <tr>
-                        <td class="text-right">@xh.ToString().Trim()</td>
-                        <td class="text-right">@item.设备号</td>
-                        <td class="text-center">@item.业务员</td>
-                        <td class="text-center">@item.收货网点</td>
-                        <td class="text-center">@item.始发城市</td>
-                        <td class="text-right">
-                            @Html.ActionLink("编辑", "iPadEdit", new { id = @item.ID }, new {@class="btn btn-default" }) |
-                            @Html.ActionLink("删除","iPadDelete", new {id = @item.ID},new {@class="btn btn-default" })
-                        </td>
+                        <td class="text-center">序号</td>
+                        <td class="text-center">设备号</td>
+                        <td class="text-center">业务员</td>
+                        <td class="text-center">收货网点</td>
+                        <td class="text-center">始发城市</td>
+                        <td class="text-center">业务操作</td>
                     </tr>
-                    xh++;
-                }
+                </thead>
+                <tbody>
+                    @{
+            int xh = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-right">@xh.ToString().Trim()</td>
+                    <td class="text-right">@item.设备号</td>
+                    <td class="text-center">@item.业务员</td>
+                    <td class="text-center">@item.收货网点</td>
+                    <td class="text-center">@item.始发城市</td>
+                    <td class="text-right">
+                        @Html.ActionLink("编辑", "iPadEdit", new { id = @item.ID }, new { @class = "btn btn-default" }) |
+                        @Html.ActionLink("删除", "iPadDelete", new { id = @item.ID }, new { @class = "btn btn-default" })
+                    </td>
+                </tr>
+                xh++;
             }
-        </tbody>
-    </table>
+                    }
+                </tbody>
+            </table>
+        }
+    }
 </div>
 @section scripts
 {

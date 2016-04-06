@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\citytel.cs" />
     <Compile Include="Models\DataToXml.cs" />
     <Compile Include="Models\HkdjTOXml.cs" />
     <Compile Include="Models\hmdh.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewSot.cs" />
     <Compile Include="Models\OldSot.cs" />
+    <Compile Include="Models\Site.cs" />
     <Compile Include="Models\Sot.cs" />
     <Compile Include="Models\sothm.cs" />
     <Compile Include="Models\Tools.cs" />
@@ -285,6 +287,8 @@
     <Content Include="Views\Shared\_SiteSideMenu.cshtml" />
     <Content Include="Views\Shared\_SettingSideMenu.cshtml" />
     <Content Include="Views\Setting\iPad.cshtml" />
+    <Content Include="Views\Setting\iPadEdit.cshtml" />
+    <Content Include="Views\Setting\Test.cshtml" />
     <None Include="Web References\WebReference\TransitService.wsdl" />
   </ItemGroup>
   <ItemGroup>

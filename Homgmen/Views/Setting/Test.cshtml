@@ -1,0 +1,83 @@
+﻿@model Homgmen.Models.Idde
+
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+
+<h2>Test</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Idde</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.设备号, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.设备号, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.设备号, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.业务员, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.业务员, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.业务员, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.收货网点, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.收货网点, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.收货网点, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.始发城市, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.始发城市, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.始发城市, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.责任人, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.责任人, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.责任人, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.完成度, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.完成度, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.完成度, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
