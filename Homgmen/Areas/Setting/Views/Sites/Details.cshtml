@@ -1,0 +1,56 @@
+﻿@model Homgmen.Areas.Setting.Models.Citytel
+
+@{
+    ViewBag.Title = "站点详细信息";
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+
+@section SideMenu
+{
+    @Html.Partial("../Shared/_SettingSideMenu");
+}
+
+<h2>站点详细信息</h2>
+
+<div>
+    <h4>站点信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.城市)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.城市)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.编号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.编号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.电话)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.电话)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.保证金)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.保证金)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("返回到站点列表", "Index")
+</p>

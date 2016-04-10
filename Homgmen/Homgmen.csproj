@@ -161,6 +161,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Setting\Controllers\iPadController.cs" />
+    <Compile Include="Areas\Setting\Controllers\SitesController.cs" />
+    <Compile Include="Areas\Setting\Models\City.cs" />
+    <Compile Include="Areas\Setting\Models\Citytel.cs" />
+    <Compile Include="Areas\Setting\SettingAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -171,7 +176,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\citytel.cs" />
     <Compile Include="Models\DataToXml.cs" />
     <Compile Include="Models\HkdjTOXml.cs" />
     <Compile Include="Models\hmdh.cs" />
@@ -181,7 +185,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewSot.cs" />
     <Compile Include="Models\OldSot.cs" />
-    <Compile Include="Models\Site.cs" />
     <Compile Include="Models\Sot.cs" />
     <Compile Include="Models\sothm.cs" />
     <Compile Include="Models\Tools.cs" />
@@ -224,6 +227,17 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Setting\Views\web.config" />
+    <Content Include="Areas\Setting\Views\iPad\Create.cshtml" />
+    <Content Include="Areas\Setting\Views\iPad\Delete.cshtml" />
+    <Content Include="Areas\Setting\Views\iPad\Details.cshtml" />
+    <Content Include="Areas\Setting\Views\iPad\Edit.cshtml" />
+    <Content Include="Areas\Setting\Views\iPad\Index.cshtml" />
+    <Content Include="Areas\Setting\Views\Sites\Create.cshtml" />
+    <Content Include="Areas\Setting\Views\Sites\Delete.cshtml" />
+    <Content Include="Areas\Setting\Views\Sites\Details.cshtml" />
+    <Content Include="Areas\Setting\Views\Sites\Edit.cshtml" />
+    <Content Include="Areas\Setting\Views\Sites\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -285,7 +299,7 @@
     <Content Include="Views\Site\Upload.cshtml" />
     <Content Include="Views\Setting\Index.cshtml" />
     <Content Include="Views\Shared\_SiteSideMenu.cshtml" />
-    <Content Include="Views\Shared\_SettingSideMenu.cshtml" />
+    <Content Include="Areas\Setting\Views\Shared\_SettingSideMenu.cshtml" />
     <Content Include="Views\Setting\iPad.cshtml" />
     <Content Include="Views\Setting\iPadEdit.cshtml" />
     <Content Include="Views\Setting\Test.cshtml" />

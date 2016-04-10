@@ -15,5 +15,7 @@
         public virtual DbSet<Sot> Sots { get; set; }
 
         public virtual DbSet<Idde> Iddes { get; set; }
+
+        public System.Data.Entity.DbSet<Homgmen.Areas.Setting.Models.Citytel> Citytels { get; set; }
     }
 }

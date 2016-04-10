@@ -1,0 +1,70 @@
+﻿@model Homgmen.Areas.Setting.Models.Citytel
+
+@{
+    ViewBag.Title = "删除站点";
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+
+@section SideMenu
+{
+    @Html.Partial("../Shared/_SettingSideMenu");
+}
+
+<h2>删除站点</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Citytel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.城市)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.城市)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.编号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.编号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.电话)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.电话)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.保证金)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.保证金)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.完成度)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.完成度)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

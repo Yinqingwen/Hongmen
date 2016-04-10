@@ -2,10 +2,10 @@
     @Html.ActionLink("系统设置看板", "Index", "Setting")
 </li>
 <li id="SettingSideMenu_iPad">
-    @Html.ActionLink("iPad终端管理", "iPad", "Setting")
+    @Html.ActionLink("iPad终端管理", "Index", "iPad", new { area = "Setting" }, new {id="iPad" })
 </li>
 <li id="SettingSideMenu_Site">
-    @Html.ActionLink("站点管理", "Site", "Setting")
+    @Html.ActionLink("站点管理","Index","Sites", new{area = "Setting"},new{id = "Sites"})
 </li>
 <!--
 <li>

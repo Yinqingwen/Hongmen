@@ -1,34 +1,34 @@
-﻿namespace Homgmen.Models
+﻿namespace Homgmen.Areas.Setting.Models
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class Site : DbContext
+    public partial class City : DbContext
     {
-        public Site()
-            : base("name=Site")
+        public City()
+            : base("name=City")
         {
         }
 
-        public virtual DbSet<citytel> citytel { get; set; }
+        public virtual DbSet<Citytel> Citytels { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<citytel>()
+            modelBuilder.Entity<Citytel>()
                 .Property(e => e.城市)
                 .IsFixedLength();
 
-            modelBuilder.Entity<citytel>()
+            modelBuilder.Entity<Citytel>()
                 .Property(e => e.编号)
                 .IsFixedLength();
 
-            modelBuilder.Entity<citytel>()
+            modelBuilder.Entity<Citytel>()
                 .Property(e => e.电话)
                 .IsFixedLength();
 
-            modelBuilder.Entity<citytel>()
+            modelBuilder.Entity<Citytel>()
                 .Property(e => e.完成度)
                 .IsFixedLength();
         }

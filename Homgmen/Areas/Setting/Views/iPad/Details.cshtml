@@ -1,0 +1,64 @@
+﻿@model Homgmen.Models.Idde
+
+@{
+    ViewBag.Title = "iPad业务终端信息";
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+
+@section SideMenu
+{
+    @Html.Partial("../Shared/_SettingSideMenu");
+}
+
+<h2>iPad业务终端信息</h2>
+
+<div>
+    <h4>iPad业务终端信息</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.设备号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.设备号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.业务员)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.业务员)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.收货网点)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.收货网点)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.始发城市)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.始发城市)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.责任人)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.责任人)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("修改", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("返回到iPad终端列表", "Index")
+</p>
