@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+@section css
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/Site/Index.css" />
+}
+
+@section SideMenu
+{
+    @Html.Partial("../Shared/_SettingSideMenu");
+}
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">
+                        @ViewBag.iPadCount
+                        <small>台</small>
+                    </h3>
+                    <small>iPad终端数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="displaybox clearfix">
+            <div>
+                <div class="pull-left">
+                    <h3 class="color-1">
+                        @ViewBag.SiteCount
+                        <small>个</small>
+                    </h3>
+                    <small>站点数量</small>
+                </div>
+                <div class="pull-right">
+                    <span class="glyphicon glyphicon-oil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $('#SettingSideMenu_Index').addClass('active');
+    </script>
+}
+
+
+
+

@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Setting\Controllers\iPadController.cs" />
+    <Compile Include="Areas\Setting\Controllers\SettingController.cs" />
     <Compile Include="Areas\Setting\Controllers\SitesController.cs" />
     <Compile Include="Areas\Setting\Models\City.cs" />
     <Compile Include="Areas\Setting\Models\Citytel.cs" />
@@ -169,7 +170,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -298,12 +298,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Site\Upload.cshtml" />
-    <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Areas\Setting\Views\Setting\Index.cshtml" />
     <Content Include="Views\Shared\_SiteSideMenu.cshtml" />
     <Content Include="Areas\Setting\Views\Shared\_SettingSideMenu.cshtml" />
-    <Content Include="Views\Setting\iPad.cshtml" />
-    <Content Include="Views\Setting\iPadEdit.cshtml" />
-    <Content Include="Views\Setting\Test.cshtml" />
     <None Include="Web References\WebReference\TransitService.wsdl" />
   </ItemGroup>
   <ItemGroup>

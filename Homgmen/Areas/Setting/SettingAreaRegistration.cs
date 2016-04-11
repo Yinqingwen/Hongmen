@@ -17,7 +17,12 @@ namespace Homgmen.Areas.Setting
             context.MapRoute(
                 "Setting_default",
                 "Setting/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new 
+                { 
+                    controller = "Setting",
+                    action = "Index", 
+                    id = UrlParameter.Optional,
+                }
             );
         }
     }
