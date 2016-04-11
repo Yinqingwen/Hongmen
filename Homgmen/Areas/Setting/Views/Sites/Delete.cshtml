@@ -12,9 +12,9 @@
 
 <h2>删除站点</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>您确认要删除这个站点吗?</h3>
 <div>
-    <h4>Citytel</h4>
+    <h4>站点信息</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -49,22 +49,14 @@
             @Html.DisplayFor(model => model.保证金)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.完成度)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.完成度)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="删除" class="btn btn-default" /> |
+            @Html.ActionLink("返回到站点列表", "Index")
         </div>
     }
 </div>

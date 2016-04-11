@@ -51,6 +51,16 @@ namespace Homgmen.Areas.Setting.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!string.IsNullOrEmpty(citytel.城市) && !string.IsNullOrWhiteSpace(citytel.城市))
+                    citytel.城市 = citytel.城市.Trim();
+                if (!string.IsNullOrEmpty(citytel.编号) && !string.IsNullOrWhiteSpace(citytel.编号))
+                    citytel.编号 = citytel.编号.Trim();
+                if (!string.IsNullOrEmpty(citytel.电话) && !string.IsNullOrWhiteSpace(citytel.电话))
+                    citytel.电话 = citytel.电话.Trim();
+                if (string.IsNullOrEmpty(citytel.保证金.ToString().Trim()) && string.IsNullOrWhiteSpace(citytel.保证金.ToString().Trim()))
+                    citytel.保证金 = Convert.ToInt64(0.0);
+                citytel.完成度 = "2";
+
                 db.Citytels.Add(citytel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,9 +96,9 @@ namespace Homgmen.Areas.Setting.Controllers
                 if (!string.IsNullOrEmpty(citytel.城市) && !string.IsNullOrWhiteSpace(citytel.城市))
                     citytel.城市 = citytel.城市.Trim();
                 if (!string.IsNullOrEmpty(citytel.编号) && !string.IsNullOrWhiteSpace(citytel.编号))
-                    citytel.城市 = citytel.编号.Trim();
+                    citytel.编号 = citytel.编号.Trim();
                 if (!string.IsNullOrEmpty(citytel.电话) && !string.IsNullOrWhiteSpace(citytel.电话))
-                    citytel.城市 = citytel.电话.Trim();
+                    citytel.电话 = citytel.电话.Trim();
                 if (string.IsNullOrEmpty(citytel.保证金.ToString().Trim()) && string.IsNullOrWhiteSpace(citytel.保证金.ToString().Trim()))
                     citytel.保证金 = Convert.ToInt64(0.0);
                 citytel.完成度 = "2";
