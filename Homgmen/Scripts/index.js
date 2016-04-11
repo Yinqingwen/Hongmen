@@ -5,7 +5,7 @@ var resultTable = new Object();
 
 $().ready(function () {
     //为提交数据按钮设置响应函数
-    $("#tj").click(datawork);
+    $("#Upload").click(datawork);
 });
 
 function displayzt(xs) {
@@ -26,7 +26,7 @@ function datawork() {
     displayjd(8);
     //获取单据数目
     $.ajax({
-        url: '/Home/ReadyData',
+        url: 'DHMGroup/Site/ReadyData',
         success: function (data) {
             var xx = "今日应提交" + data + "条数据！！！";
             resultTable.TodayRowNumber = data;

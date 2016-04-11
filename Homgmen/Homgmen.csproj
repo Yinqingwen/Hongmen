@@ -161,6 +161,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\DHMGroup\Controllers\SiteController.cs" />
+    <Compile Include="Areas\DHMGroup\DHMGroupAreaRegistration.cs" />
     <Compile Include="Areas\Setting\Controllers\iPadController.cs" />
     <Compile Include="Areas\Setting\Controllers\SettingController.cs" />
     <Compile Include="Areas\Setting\Controllers\SitesController.cs" />
@@ -235,6 +237,9 @@
     <Content Include="Areas\Setting\Views\Sites\Details.cshtml" />
     <Content Include="Areas\Setting\Views\Sites\Edit.cshtml" />
     <Content Include="Areas\Setting\Views\Sites\Index.cshtml" />
+    <Content Include="Areas\DHMGroup\Views\web.config" />
+    <Content Include="Areas\DHMGroup\Views\Shared\_DHMGroupSideMenu.cshtml" />
+    <Content Include="Areas\DHMGroup\Views\Site\Index.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -299,12 +304,12 @@
     <Content Include="Views\Site\Index.cshtml" />
     <Content Include="Views\Site\Upload.cshtml" />
     <Content Include="Areas\Setting\Views\Setting\Index.cshtml" />
-    <Content Include="Views\Shared\_SiteSideMenu.cshtml" />
     <Content Include="Areas\Setting\Views\Shared\_SettingSideMenu.cshtml" />
     <None Include="Web References\WebReference\TransitService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\DHMGroup\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -23,8 +23,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("站点操作","Index","Site")</li>
-                    <li>@Html.ActionLink("系统设置", "Index", "Setting")</li>
+                    <li>@Html.ActionLink("大红门站专用", "Index", "Site", new { area = "DHMGroup" }, new { id = "Menu_DHMGroup"})</li>
+                    <li>@Html.ActionLink("系统设置", "Index", "Setting", new { area = "Setting" }, new { id = "Menu_Setting"})</li>
                     <li>@Html.ActionLink("关于", "About", "Home")</li>
                     <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
                 </ul>
