@@ -1,14 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_Side.cshtml";
 }
+
 @section css
 {
     <link rel="stylesheet" type="text/css" href="~/Content/Site/Index.css" />
 }
+
 @section SideMenu
 {
     @Html.Partial("_SiteSideMenu");
 }
+
 <div class="row">
     <div class="title clearfix">
         <h4 class="pull-left" style="">站点首页</h4>
@@ -21,6 +24,7 @@
         </ol>
     </div>
 </div>
+
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="displaybox clearfix">
