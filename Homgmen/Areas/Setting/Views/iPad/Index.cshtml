@@ -10,11 +10,8 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
-<h2>iPad终端列表</h2>
+<h2>iPad终端列表<small style="font-size:14px; padding-left:2rem;">@Html.ActionLink("创建新的iPad终端", "Create")</small></h2>
 
-<p>
-    @Html.ActionLink("创建新的iPad终端", "Create")
-</p>
 <table class="table table-bordered table-responsive table-hover table-striped">
     <thead>
         <tr>
@@ -68,3 +65,10 @@
         }
     }
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $('#SettingSideMenu_iPad').addClass('active');
+    </script>
+}

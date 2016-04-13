@@ -10,11 +10,8 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
-<h2>站点列表</h2>
+<h2>站点列表<small style="font-size:14px; padding-left:2rem;">@Html.ActionLink("创建新站点", "Create")</small></h2>
 
-<p>
-    @Html.ActionLink("创建新站点", "Create")
-</p>
 <table class="table table-bordered table-responsive table-striped table-hover">
     <thead>
         <tr>
@@ -62,3 +59,12 @@
         }
     }
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $('#SettingSideMenu_Site').addClass('active');
+    </script>
+}
+
+

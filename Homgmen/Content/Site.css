@@ -1,7 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: #f3f5f9;
+    /*background: #f3f5f9;*/
+    background:#fff;
+    color:#333;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,4 +24,10 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar {
+    background: #e7e7e7; 
+    border: 1px solid #e7e7e7;
+    color: #999;
 }

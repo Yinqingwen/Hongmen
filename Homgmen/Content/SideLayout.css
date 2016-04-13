@@ -1,3 +1,9 @@
 ﻿.shadowbox {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.22) !important;
 }
+
+#SideMenu > li > a.active,
+#SideMenu > li > a:hover {
+    color: #fff;
+    background-color: #428bca;
+}
