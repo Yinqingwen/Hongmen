@@ -172,7 +172,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,7 +273,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -301,8 +299,6 @@
     </Content>
     <Content Include="Views\Shared\_Side.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Site\Index.cshtml" />
-    <Content Include="Views\Site\Upload.cshtml" />
     <Content Include="Areas\Setting\Views\Setting\Index.cshtml" />
     <Content Include="Areas\Setting\Views\Shared\_SettingSideMenu.cshtml" />
     <None Include="Web References\WebReference\TransitService.wsdl" />
