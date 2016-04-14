@@ -10,12 +10,13 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
-<h2>删除站点</h2>
+<div class="page-header">
+    <div class="page-title">
+        <h1>删除站点    <small>您确认要删除这个站点吗?</small></h1>
+    </div>
+</div>
 
-<h3>您确认要删除这个站点吗?</h3>
-<div>
-    <h4>站点信息</h4>
-    <hr />
+<div class="shadowbox">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.城市)

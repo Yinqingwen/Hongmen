@@ -12,9 +12,15 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
+<div class="page-header">
+    <div class="page-title">
+        <h1>系统设置首页 <small>系统全局设置</small></h1>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="displaybox clearfix">
+        <div class="displaybox shadowbox clearfix">
             <div>
                 <div class="pull-left">
                     <h3 class="color-1">
@@ -24,13 +30,15 @@
                     <small>iPad终端数量</small>
                 </div>
                 <div class="pull-right">
-                    <span class="glyphicon glyphicon-oil"></span>
+                    <a href="@Url.Action("Index","iPad")" title="显示iPad终端列表" class="btn btn-default" >
+                        <span class="glyphicon glyphicon-apple"></span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="displaybox clearfix">
+        <div class="displaybox shadowbox clearfix">
             <div>
                 <div class="pull-left">
                     <h3 class="color-1">
@@ -40,7 +48,9 @@
                     <small>站点数量</small>
                 </div>
                 <div class="pull-right">
-                    <span class="glyphicon glyphicon-oil"></span>
+                    <a class="btn btn-default" href="@Url.Action("Index","Sites")" title="显示站点列表">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </a>
                 </div>
             </div>
         </div>

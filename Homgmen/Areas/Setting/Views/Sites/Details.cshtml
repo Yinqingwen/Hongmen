@@ -10,11 +10,14 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
-<h2>站点详细信息</h2>
+<div class="page-header">
+    <div class="page-title">
+        <h1>站点信息    <small>@Html.ActionLink("修改", "Edit", new { id = Model.ID }) | @Html.ActionLink("返回站点列表", "Index")</small>
+        </h1>
+    </div>
+</div>
 
-<div>
-    <h4>站点信息</h4>
-    <hr />
+<div class="shadowbox">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.城市)
@@ -50,7 +53,10 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("修改", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("返回到站点列表", "Index")
-</p>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $('#SettingSideMenu_Site').addClass('active');
+    </script>
+}

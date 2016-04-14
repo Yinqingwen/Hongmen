@@ -1,14 +1,19 @@
 ﻿.title {
      padding:5px 15px;
 }
+.color-1 {
+    color: #4DB3A2 !important;
+}
+
 .displaybox {
     border-radius:4px;
     background:#fff;
     padding:15px;
     margin:15px 0;
-}
-.color-1 {
-    color: #4DB3A2 !important;
+    border-radius: 2px;
+    background: #fff;
+    padding: 15px 15px 30px 15px;
+    margin-bottom: 20px;
 }
     .displaybox > div > div {
         display:inline-block;
@@ -24,7 +29,22 @@
             font-weight:600;
             text-transform:uppercase;
         }
-        .displaybox > div > div > span {
+        .displaybox > div > div > a {
+            border:none;
             color:#cbd4e0;
             font-size:26px;
         }
+
+.page-header > .page-title > h1 {
+    color: #697882;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+    .page-header > .page-title > h1 > small {
+        color: #9eacb4;
+        font-size: 12px;
+        font-weight: 400;
+    }

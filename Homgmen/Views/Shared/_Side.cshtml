@@ -1,18 +1,21 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section css
 {
     <link rel="stylesheet" type="text/css" href="~/Content/SideLayout.css" />
 }
+
 @RenderSection("css", required: false)
+
 <nav class="col-md-2 pull-left">
     <ul class="nav nav-pills nav-stacked shadowbox" id="SideMenu">
         @RenderSection("SideMenu",required:false)
     </ul>
 </nav>
 <div class="col-md-10">
-    <div class="container-fluid shadowbox">
+    <div class="container-fluid">
         @RenderBody()
     </div>
 </div>

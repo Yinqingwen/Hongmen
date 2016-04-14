@@ -9,56 +9,61 @@
 {
     @Html.Partial("../Shared/_SettingSideMenu");
 }
+<div class="page-header">
+    <div class="page-title">
+        <h1>站点列表    <small>@Html.ActionLink("创建新站点", "Create")</small></h1>
+    </div>
+</div>
 
-<h2>站点列表<small style="font-size:14px; padding-left:2rem;">@Html.ActionLink("创建新站点", "Create")</small></h2>
-
-<table class="table table-bordered table-responsive table-striped table-hover">
-    <thead>
-        <tr>
-            <th class="text-center">序号</th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.城市)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.编号)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.电话)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.保证金)
-            </th>
-            <th class="text-center">操作区域</th>
-        </tr>
-    </thead>
-    @{
-        int xh = 0;
-        foreach (var item in Model)
-        {
-            xh++;
+<div class="shadowbox">
+    <table class="table table-bordered table-responsive table-striped table-hover">
+        <thead>
             <tr>
-                <td class="text-right">@xh.ToString().Trim()</td>
-                <td class="text-center">
-                    @Html.DisplayFor(modelItem => item.城市)
-                </td>
-                <td class="text-right">
-                    @Html.DisplayFor(modelItem => item.编号)
-                </td>
-                <td class="text-right">
-                    @Html.DisplayFor(modelItem => item.电话)
-                </td>
-                <td class="text-right">
-                    @Html.DisplayFor(modelItem => item.保证金)
-                </td>
-                <td class="text-right">
-                    @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("详细信息", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("删除", "Delete", new { id = item.ID })
-                </td>
+                <th class="text-center">序号</th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.城市)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.编号)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.电话)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.保证金)
+                </th>
+                <th class="text-center">操作区域</th>
             </tr>
+        </thead>
+        @{
+            int xh = 0;
+            foreach (var item in Model)
+            {
+                xh++;
+                <tr>
+                    <td class="text-right">@xh.ToString().Trim()</td>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.城市)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.编号)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.电话)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.保证金)
+                    </td>
+                    <td class="text-right">
+                        @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("详细信息", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
         }
-    }
-</table>
+    </table>
+</div>
 
 @section scripts
 {

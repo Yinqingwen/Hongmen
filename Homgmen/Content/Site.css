@@ -1,8 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    /*background: #f3f5f9;*/
-    background:#fff;
+    background: #f3f5f9;
+    /*background:#fff;*/
     color:#333;
 }
 
@@ -30,4 +30,8 @@ textarea {
     background: #e7e7e7; 
     border: 1px solid #e7e7e7;
     color: #999;
+}
+
+footer {
+    padding:2em;
 }

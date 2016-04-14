@@ -10,12 +10,13 @@
     @Html.Partial("../Shared/_SettingSideMenu");
 }
 
-<h2>删除iPad业务终端</h2>
+<div class="page-header">
+    <div class="page-title">
+        <h1>删除iPad业务终端    <small>您确定要删除这个iPad业务终端信息?</small></h1>
+    </div>
+</div>
 
-<h3>您确定要删除这个iPad业务终端信息?</h3>
-<div>
-    <h4>iPad终端信息</h4>
-    <hr />
+<div class="shadowbox">
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.设备号)
@@ -68,3 +69,10 @@
         </div>
     }
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $('#SettingSideMenu_iPad').addClass('active');
+    </script>
+}
