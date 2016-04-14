@@ -1,0 +1,107 @@
+﻿@model Homgmen.Models.sothm
+
+@{
+    ViewBag.Title = "运单检索";
+    Layout = "~/Views/Shared/_Side.cshtml";
+}
+
+@section SideMenu
+{
+    @Html.Partial("../Shared/_DHMGroupSideMenu");
+}
+
+<div>
+    @using (Html.BeginForm("Yundan", "Search", new { area = "DHMGroup" }, FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+    {
+        <div class="form-group">
+            <label class="sr-only" for="YdNumber">Password</label>
+            <input type="number" class="form-control" id="YdNumber" name="YdNumber" ydnumber"" placeholder="7位数字运单号">
+        </div>
+        <button type="submit" class="btn btn-default" onclick="return Valid($('#YdNumber').val())"><span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;运单号查找</button>
+    }
+</div>
+
+@{
+    if (Model != null)
+    {
+        <div class="page-header">
+            <div class="page-title">
+                <h1>
+                    运单查询&nbsp;&nbsp;&nbsp;&nbsp;<small>运单号码：@Model.ID</small>
+                </h1>
+            </div>
+        </div>
+        <div class="shadowbox">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th class="text-center">发货日期</th>
+                        <th class="text-center">发货人</th>
+                        <th class="text-center">发货人电话</th>
+                        <th class="text-center">收货人</th>
+                        <th class="text-center">收货人电话</th>
+                        <th class="text-center">运费</th>
+                        <th class="text-center">代收金额</th>
+                        <td class="text-center">付款方式</td>
+                        <th class="text-center">汇款单号</th>
+                        <th class="text-center">运单状态</th>
+                        <th class="text-center">提交状态</th>
+                        <th class="text-center">数据操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-right">@Convert.ToDateTime(@Model.托运日期).ToShortDateString()</td>
+                        <td class="text-center">@Model.发货人</td>
+                        <td class="text-right">@Model.发货人电话</td>
+                        <td class="text-center">@Model.收货人</td>
+                        <td class="text-right">@Model.收货人电话</td>
+                        <td class="text-right">@Convert.ToDecimal(@Model.运费).ToString("C")</td>
+                        <td class="text-right">@Convert.ToDecimal(@Model.代收金额).ToString("C")</td>
+                        <td class="text-center">@Model.付款方式</td>
+                        <td class="text-center">@Model.关联编号</td>
+                        @switch (Model.单据状态)
+                        {
+                            case 30:
+                                <td class="text-right">到货</td>
+                                break;
+                            case 40:
+                                <td class="text-right">提货</td>
+                                break;
+                            case 50:
+                                <td class="text-right">付款</td>
+                                break;
+                            case 60:
+                                <td class="text-right">取消或原返</td>
+                                break;
+                            default:
+                                <td class="text-right">取消或原返</td>
+                                break;
+                        }
+                        @switch(Model.上传状态)
+                        {
+                            case true:
+                                <td class="text-right">已上传</td>
+                                break;
+                            default:
+                                <td class="text-right">未上传</td>
+                                break;
+                        }
+                        <td class="text-right"><a>操作1</a><a>操作2</a><a>操作3</a><a>操作4</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        $('#DHMGroupSideMenu_YdSearch').addClass('active');
+        function Valid(number) {
+            var reg = new RegExp(/^\d{7}$/);
+            return reg.test(number);
+        }
+    </script>
+}

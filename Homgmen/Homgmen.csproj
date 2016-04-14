@@ -169,6 +169,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\DHMGroup\Controllers\SearchController.cs" />
     <Compile Include="Areas\DHMGroup\Controllers\SiteController.cs" />
     <Compile Include="Areas\DHMGroup\DHMGroupAreaRegistration.cs" />
     <Compile Include="Areas\Setting\Controllers\iPadController.cs" />
@@ -247,6 +248,7 @@
     <Content Include="Areas\DHMGroup\Views\web.config" />
     <Content Include="Areas\DHMGroup\Views\Shared\_DHMGroupSideMenu.cshtml" />
     <Content Include="Areas\DHMGroup\Views\Site\Index.cshtml" />
+    <Content Include="Areas\DHMGroup\Views\Search\Yundan.cshtml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

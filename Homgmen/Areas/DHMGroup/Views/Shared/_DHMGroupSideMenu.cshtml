@@ -1,14 +1,15 @@
 ﻿<li id="DHMGroupSideMenu_Index">
-    @Html.ActionLink("站点数据上报", "Index", "Site")
+    @Html.ActionLink("站点数据上报", "Index", "Site", new { area = "DHMGroup" }, new { id="DHMUpload" })
 </li>
-<li id="SettingSideMenu_iPad">
-    @Html.ActionLink("iPad终端管理", "Index", "iPad", new { area = "Setting" }, new { id = "iPad" })
+<li id="DHMGroupSideMenu_YdSearch">
+    @Html.ActionLink("运单号查询", "Yundan", "Search", new { area = "DHMGroup" }, new { id="YdSearch"})
 </li>
 <li id="SettingSideMenu_Site">
     @Html.ActionLink("站点管理", "Index", "Sites", new { area = "Setting" }, new { id = "Sites" })
 </li>
 <!--
 <li>
+    @Html.ActionLink("iPad终端管理", "Index", "iPad", new { area = "Setting" }, new { id = "iPad" })
     @Html.ActionLink("运单操作", "Search", "Site")
 </li>
 <li>
